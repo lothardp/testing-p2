@@ -10,6 +10,10 @@ class Flight < ApplicationRecord
     all.where("datetime > ?", Time.now.strftime("%Y-%m-%d %H:%M"))
   end
 
+  def occupation_percentage
+    ((reservations.count.to_f / (TestingP2::Application::TOTAL_SEATS)) * 100).to_i
+  end
+
   def datetime_cannot_be_in_the_past
     errors.add(:datetime, "can't be in the past") if datetime && datetime < Time.now.strftime("%Y-%m-%d %H:%M")
   end

@@ -1,13 +1,12 @@
 <header>
-  <%= stylesheet_link_tag "navbar" %>
-  <div id="navbar">
-    <%= link_to "Admin", admin_flights_path, class: @admin ? "selected" : "" %>
-    <%= link_to "User", flights_path, class: @admin ? "" : "selected" %>
-    <% if @admin %>
+  <div class="level m-4">
+    <%= link_to "Admin", admin_flights_path, class: "level-item p-4 " + (@admin ? "selected" : "") %>
+    <%= link_to "User", flights_path, class: "level-item p-4 " + (@admin ? "" : "selected") %>
   </div>
-  <div id="admin-navbar">
-    <%= link_to "Flights", admin_flights_path %>
-    <%= link_to "Reservations", admin_reservations_path %>
-    <% end %>
-  </div>
+  <% if @admin %>
+    <div class="level m-4">
+      <%= link_to "Flights", admin_flights_path, class: "level-item p-4" %>
+      <%= link_to "Reservations", admin_reservations_path, class: "level-item p-4" %>
+    </div>
+  <% end %>
 </header>

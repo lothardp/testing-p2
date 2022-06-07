@@ -1,8 +1,12 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @flight %>
-
-<div>
-  <%= render "reservations/form" %>
-  <%= link_to "Back to flights", flights_path %>
+<div class="columns m-4">
+  <div class="column is-one-quarter box m-4">
+    <div>
+      <%= render "reservations/form" %>
+      <%= link_to "Back to flights", flights_path, class: "button m-4" %>
+    </div>
+  </div>
+  <div class="column box m-4">
+    <%= render @flight %>
+  </div>
 </div>

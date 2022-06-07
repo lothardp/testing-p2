@@ -1,7 +1,5 @@
 class FlightsController < ApplicationController
   def index
-    # TODO: Add filters
-    # TODO: Add only future flights
     @flights = Flight.all_future
 
     @filters = params[:filters]

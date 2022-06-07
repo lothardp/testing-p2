@@ -3,7 +3,14 @@ class Admin::FlightsController < Admin::AdminController
 
   # GET /flights or /flights.json
   def index
+    # TODO: add stats
+    # TODO: add  occupation percentage
     @flights = Flight.all
+    reservations = Reservation.all
+    @total_reservations = reservations.count
+    @total_users = Reservation.distinct.pluck(:user).count
+    @total_flights = @flights.count
+    @average_occupation = average_occupation
   end
 
   # GET /flights/1 or /flights/1.json
@@ -58,5 +65,11 @@ class Admin::FlightsController < Admin::AdminController
     # Only allow a list of trusted parameters through.
     def flight_params
       params.require(:flight).permit(:datetime, :origin, :destination)
+    end
+
+    def average_occupation
+      return 0 if Flight.all.count == 0
+      total_seats = TestingP2::Application::TOTAL_SEATS * Flight.all.count
+      (Reservation.all.count.to_f / total_seats) * 100
     end
 end

@@ -1,20 +1,23 @@
-<div id="<%= dom_id flight %>">
-  <p>
-    <strong>Datetime:</strong>
+<tr class="admin-flight-row">
+  <td>
     <%= flight.datetime %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Origin:</strong>
+  <td>
     <%= flight.origin %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Destination:</strong>
+  <td>
     <%= flight.destination %>
-  </p>
-  
+  </td>
+  <td>
+    <%= flight.occupation_percentage %> %
+  </td>
+
+  <td>
   <%= button_to "Delete", admin_flight_path(flight), method: :delete %>
+  </td>
+</tr>
 
 
-</div>
+

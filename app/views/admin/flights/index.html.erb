@@ -3,13 +3,28 @@
 <h1>Flights</h1>
 
 <div id="flight-stats">
-STATS
+  <p>Total Reservations: <%= @total_reservations %></p>
+  <p>Total Users: <%= @total_users %></p>
+  <p>Total Flights: <%= @total_flights %></p>
+  <p>Average Occupation: <%= @average_occupation %> %</p>
 </div>
 
-<div id="flights">
-  <% @flights.each do |flight| %>
-    <%= render flight %>
+<table id="admin-flights-table">
+  <tr>
+    <th>Datetime</th>
+    <th>Origin</th>
+    <th>Destination</th>
+    <th>Occupation</th>
+    <th>Delete</th>
+  </tr>
+  <% if @flights.empty? %>
+    <tr>No Flights</tr>
+  <% else %>
+    <% @flights.each do |flight| %>
+      <%= render flight %>
+    <% end %>
   <% end %>
-</div>
+</table>
+
 
 <%= link_to "New flight", new_admin_flight_path %>

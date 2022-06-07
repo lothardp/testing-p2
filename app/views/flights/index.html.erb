@@ -1,40 +1,46 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Flights</h1>
-
-<%= form_with url: flights_path, scope: :filters, method: :get do |form| %>
-
-  <div>
-    <%= form.label :datetime, style: "display: block" %>
-    <%= form.datetime_field :datetime, value: @filters["datetime"] %>
+<div class="level p-4 m-4">
+  <h1 class="level-item has-text-centered is-size-2">Flights</h1>
+</div>
+<div class="columns m-4">
+  <div class="column is-one-quarter m-4">
+    <div class="box">
+      <%= form_with url: flights_path, scope: :filters, method: :get do |form| %>
+        <div class="field">
+          <%= form.label :datetime, class: "label" %>
+          <%= form.datetime_field :datetime, value: @filters["datetime"], class: "input" %>
+        </div>
+        <div class="field">
+          <%= form.label :origin, class: "label" %>
+          <%= form.text_field :origin, value: @filters["origin"], class: "input" %>
+        </div>
+        <div class="field">
+          <%= form.label :destination, class: "label" %>
+          <%= form.text_field :destination, value: @filters["destination"], class: "input" %>
+        </div>
+        <div class="field">
+          <%= form.submit value: "Filter", class: "button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :origin, style: "display: block" %>
-    <%= form.text_field :origin, value: @filters["origin"] %>
+  <div class="column box m-4">
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Datetime</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Reserve</th>
+        </tr>
+      </thead>
+      <% if @flights.empty? %>
+        <tr>No Flights</tr>
+      <% else %>
+        <% @flights.each do |flight| %>
+          <%= render "flight_row", flight: flight %>
+        <% end %>
+      <% end %>
+    </table>
   </div>
-
-  <div>
-    <%= form.label :destination, style: "display: block" %>
-    <%= form.text_field :destination, value: @filters["destination"] %>
-  </div>
-  <div>
-    <%= form.submit value: "Filter" %>
-  </div>
-<% end %>
-
-<table id="flights-table">
-  <tr>
-    <th>Datetime</th>
-    <th>Origin</th>
-    <th>Destination</th>
-    <th>Reserve</th>
-  </tr>
-  <% if @flights.empty? %>
-    <tr>No Flights</tr>
-  <% else %>
-    <% @flights.each do |flight| %>
-      <%= render flight %>
-    <% end %>
-  <% end %>
-</table>
+</div>
