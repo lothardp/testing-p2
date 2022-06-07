@@ -1,4 +1,4 @@
-<%= form_with(model: flight) do |form| %>
+<%= form_with url: new_admin_flight_path, scope: flight do |form| %>
   <% if flight.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(flight.errors.count, "error") %> prohibited this flight from being saved:</h2>

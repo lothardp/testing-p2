@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   post '/flights/:id/reservations', to: 'reservations#create', as: 'reservations' # equivale al new reservation
 
   get 'admin/flights', to: 'admin/flights#index', as: 'admin_flights'
-  get 'admin/flights/new', to: 'admin/flights#new', as: 'new_flight'
+  get 'admin/flights/new', to: 'admin/flights#new', as: 'new_admin_flight'
+  post 'admin/flights/new', to: 'admin/flights#create'
+  delete 'admin/flights/:id', to: 'admin/flights#destroy', as: 'admin_flight'
   get 'admin/reservations', to: 'admin/reservations#index', as: 'admin_reservations'
   get 'admin/reservations/:id/edit', to: 'admin/reservations#edit', as: 'edit_admin_reservation'
   patch 'admin/reservations/:id', to: 'admin/reservations#update', as: 'admin_reservation'

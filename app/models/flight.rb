@@ -1,19 +1,21 @@
 class Flight < ApplicationRecord
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
 
   validates :origin, presence: true
   validates :destination, presence: true
   validates :datetime, presence: true
   validate :datetime_cannot_be_in_the_past
 
+  def self.all_future
+    all.where("datetime > ?", Time.now.strftime("%Y-%m-%d %H:%M"))
+  end
+
   def datetime_cannot_be_in_the_past
-    errors.add(:datetime, "can't be in the past") if datetime && datetime < DateTime.now
+    errors.add(:datetime, "can't be in the past") if datetime && datetime < Time.now.strftime("%Y-%m-%d %H:%M")
   end
 
   def free_seat(seat)
     reservations.each do |r|
-      puts r.seat, seat
-      puts
       return false if seat == r.seat
     end
     true

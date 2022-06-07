@@ -2,11 +2,39 @@
 
 <h1>Flights</h1>
 
-<div id="flights">
-  <% @flights.each do |flight| %>
-    <%= render flight %>
-    <p>
-      <%= link_to "Reserve this flight", flight %>
-    </p>
+<%= form_with url: flights_path, scope: :filters, method: :get do |form| %>
+
+  <div>
+    <%= form.label :datetime, style: "display: block" %>
+    <%= form.datetime_field :datetime, value: @filters["datetime"] %>
+  </div>
+
+  <div>
+    <%= form.label :origin, style: "display: block" %>
+    <%= form.text_field :origin, value: @filters["origin"] %>
+  </div>
+
+  <div>
+    <%= form.label :destination, style: "display: block" %>
+    <%= form.text_field :destination, value: @filters["destination"] %>
+  </div>
+  <div>
+    <%= form.submit value: "Filter" %>
+  </div>
+<% end %>
+
+<table id="flights-table">
+  <tr>
+    <th>Datetime</th>
+    <th>Origin</th>
+    <th>Destination</th>
+    <th>Reserve</th>
+  </tr>
+  <% if @flights.empty? %>
+    <tr>No Flights</tr>
+  <% else %>
+    <% @flights.each do |flight| %>
+      <%= render flight %>
+    <% end %>
   <% end %>
-</div>
+</table>

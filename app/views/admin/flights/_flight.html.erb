@@ -13,5 +13,8 @@
     <strong>Destination:</strong>
     <%= flight.destination %>
   </p>
+  
+  <%= button_to "Delete", admin_flight_path(flight), method: :delete %>
+
 
 </div>

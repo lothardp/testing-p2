@@ -1,17 +1,19 @@
-<div id="<%= dom_id flight %>">
-  <p>
-    <strong>Datetime:</strong>
+<tr class="flight-row">
+  <td>
     <%= flight.datetime %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Origin:</strong>
+  <td>
     <%= flight.origin %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Destination:</strong>
+  <td>
     <%= flight.destination %>
-  </p>
+  </td>
 
-</div>
+  <td>
+    <%= link_to "Reserve", flight %>
+  </td>
+</tr>
+
+

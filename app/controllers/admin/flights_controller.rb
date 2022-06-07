@@ -23,14 +23,10 @@ class Admin::FlightsController < Admin::AdminController
   def create
     @flight = Flight.new(flight_params)
 
-    respond_to do |format|
-      if @flight.save
-        format.html { redirect_to flight_url(@flight), notice: "Flight was successfully created." }
-        format.json { render :show, status: :created, location: @flight }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @flight.errors, status: :unprocessable_entity }
-      end
+    if @flight.save
+      redirect_to admin_flights_url, notice: "Flight was successfully created." 
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -50,11 +46,7 @@ class Admin::FlightsController < Admin::AdminController
   # DELETE /flights/1 or /flights/1.json
   def destroy
     @flight.destroy
-
-    respond_to do |format|
-      format.html { redirect_to flights_url, notice: "Flight was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to admin_flights_url, notice: "Flight was successfully destroyed."
   end
 
   private
