@@ -1,0 +1,35 @@
+#navbar {
+  display: flex;
+  flex-direction: row;
+  width: 500;
+  justify-content: center;
+}
+
+#navbar > a {
+  text-align: center;
+  padding: 50px 100px;
+}
+
+#admin-navbar {
+  display: flex;
+  flex-direction: row;
+  width: 500;
+  justify-content: center;
+}
+
+#admin-navbar > a {
+  text-align: center;
+  padding: 50px 100px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: bisque;
+}
+
+.selected {
+  background-color: rgb(214, 214, 214);
+}

@@ -1,0 +1,21 @@
+<div id="<%= dom_id reservation %>">
+  <p>
+    <strong>User:</strong>
+    <%= reservation.user %>
+  </p>
+
+  <p>
+    <strong>Seat:</strong>
+    <%= reservation.seat %>
+  </p>
+
+  <p>
+    <strong>Flight:</strong>
+    <%= reservation.flight_id %>
+  </p>
+
+  <div>
+    <%= link_to "Edit this reservation", edit_admin_reservation_path(reservation) %>
+    <%= button_to "Delete", admin_reservation_path(reservation), method: :delete %>
+  </div>
+</div>

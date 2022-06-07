@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Flights</h1>
+
+<div id="flight-stats">
+STATS
+</div>
+
+<div id="flights">
+  <% @flights.each do |flight| %>
+    <%= render flight %>
+  <% end %>
+</div>
+
+<%= link_to "New flight", new_flight_path %>

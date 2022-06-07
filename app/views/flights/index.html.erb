@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Flights</h1>
+
+<div id="flights">
+  <% @flights.each do |flight| %>
+    <%= render flight %>
+    <p>
+      <%= link_to "Reserve this flight", flight %>
+    </p>
+  <% end %>
+</div>

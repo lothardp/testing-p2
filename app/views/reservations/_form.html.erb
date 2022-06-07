@@ -1,0 +1,28 @@
+<%= form_with url: reservations_path(@flight) do |form| %>
+  <p><%= "Can't repeat seats" if @repeated_seats%></p>
+  <% if @errors %>
+    <div style="color: red">
+      <h2><%= pluralize(@errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+        <% @errors.each do |error| %>
+          <li><%= error.full_messages %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user, style: "display: block" %>
+    <%= form.text_field :user %>
+  </div>
+
+  <div>
+    <%= form.label :seats, style: "display: block" %>
+    <%= form.text_field :seats %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
