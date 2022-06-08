@@ -1,30 +1,51 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Flights</h1>
-
-<div id="flight-stats">
-  <p>Total Reservations: <%= @total_reservations %></p>
-  <p>Total Users: <%= @total_users %></p>
-  <p>Total Flights: <%= @total_flights %></p>
-  <p>Average Occupation: <%= @average_occupation %> %</p>
+<div class="level p-4 m-4">
+  <h1 class="level-item has-text-centered is-size-2">Flights</h1>
 </div>
-
-<table id="admin-flights-table">
-  <tr>
-    <th>Datetime</th>
-    <th>Origin</th>
-    <th>Destination</th>
-    <th>Occupation</th>
-    <th>Delete</th>
-  </tr>
-  <% if @flights.empty? %>
-    <tr>No Flights</tr>
-  <% else %>
-    <% @flights.each do |flight| %>
-      <%= render flight %>
-    <% end %>
-  <% end %>
-</table>
-
-
-<%= link_to "New flight", new_admin_flight_path %>
+<div class="columns m-4">
+  <div class="column is-one-quarter m-4">
+    <div class="box">
+      <div class="block is-size-5">
+        <div class="separate-childs">
+          <p class="block">Total Reservations: </p>
+          <span class="has-text-weight-bold"><%= @total_reservations %></span>
+        </div>
+        <div class="separate-childs">
+          <p class="block">Total Users: </p>
+          <span class="has-text-weight-bold"><%= @total_users %></span>
+        </div>
+        <div class="separate-childs">
+          <p class="block">Total Flights: </p>
+          <span class="has-text-weight-bold"><%= @total_flights %></span>
+        </div>
+        <div class="separate-childs">
+          <p class="block">Average Occupation: </p>
+          <span class="has-text-weight-bold"><%= @average_occupation %> %</span>
+        </div>
+      </div>
+      <div class= "center-child">
+        <%= link_to "New flight", new_admin_flight_path, class: "button is-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="column box m-4">
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Datetime</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Occupation</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <% if @flights.empty? %>
+        <tr>No Flights</tr>
+      <% else %>
+        <% @flights.each do |flight| %>
+          <%= render flight %>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>

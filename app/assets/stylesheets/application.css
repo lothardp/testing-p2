@@ -14,16 +14,12 @@
  *= require_self
  */
 
-#main-container {
-  padding:auto;
-  margin:auto;
-  width: 1000px;
-  text-align:center;
-  background-color: aquamarine;
-  display: flex;
-  flex-direction: column;
-}
+ .center-child {
+   display: flex;
+   justify-content: center;
+ }
 
-#main-container * {
-  border:  3px solid black;
-}
+ .separate-childs {
+   display: flex;
+   justify-content: space-around;
+ }

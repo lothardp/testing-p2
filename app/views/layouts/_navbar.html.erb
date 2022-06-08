@@ -1,12 +1,16 @@
 <header>
   <div class="level m-4">
-    <%= link_to "Admin", admin_flights_path, class: "level-item p-4 " + (@admin ? "selected" : "") %>
-    <%= link_to "User", flights_path, class: "level-item p-4 " + (@admin ? "" : "selected") %>
+    <div class="level-item columns has-text-centered">
+      <%= link_to "Admin", admin_flights_path, class: "column is-half p-4 " + (@admin ? "has-background-light	" : "") %>
+      <%= link_to "User", flights_path, class: "column is-half p-4 " + (@admin ? "" : "has-background-light	") %>
+    </div>
   </div>
   <% if @admin %>
     <div class="level m-4">
-      <%= link_to "Flights", admin_flights_path, class: "level-item p-4" %>
-      <%= link_to "Reservations", admin_reservations_path, class: "level-item p-4" %>
+      <div class="level-item columns has-text-centered">
+        <%= link_to "Flights", admin_flights_path, class: "column is-half p-4 " + (@selected == "flights" ? "has-background-light	" : "") %>
+        <%= link_to "Reservations", admin_reservations_path, class: "column is-half p-4 " + (@selected == "reservations" ? "has-background-light	" : "") %>
+      </div>
     </div>
   <% end %>
 </header>

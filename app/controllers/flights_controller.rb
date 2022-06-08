@@ -14,5 +14,8 @@ class FlightsController < ApplicationController
 
   def show
     @flight = Flight.find(params[:id])
+    @taken_seats = @flight.taken_seats
+    @columns = TestingP2::Application::VALID_COLUMNS
+    @max_files = TestingP2::Application::MAX_FILES
   end
 end

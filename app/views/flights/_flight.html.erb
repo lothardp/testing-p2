@@ -1,5 +1,4 @@
 <div class="m-4 has-text-centered">
-
   <div class="is-size-3 p-3">
     Flight
   </div>
@@ -13,6 +12,21 @@
     Destination: <%= flight.destination %>
   </div>
   <div class="p-3">
-  ACA VA EL MAPA
+    <table class="table is-fullwidth">
+      <thead>
+        <th></th>
+        <% max_files.times do |file|%>
+          <th><%= file + 1%></th>
+        <%end%>
+      </thead>
+      <% columns.each do |col|%>
+        <tr>
+          <th><%= col%></th>
+          <% max_files.times do |file|%>
+            <td class=<%= (taken_seats.include? (file+1).to_s+col) ? "is-danger" : "is-selected"%> ><%=file+1%><%=col%></td>
+          <%end%>
+        </tr>
+      <%end%>
+    </table>
   </div>
 </div>

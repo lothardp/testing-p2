@@ -36,4 +36,8 @@ class Admin::ReservationsController < Admin::AdminController
   def reservation_params
     params.require(:reservation).permit(:user, :seat, :flight_id)
   end
+
+  def set_selected
+    @selected = 'reservations'
+  end
 end

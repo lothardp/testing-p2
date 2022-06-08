@@ -1,5 +1,11 @@
 <%= form_with url: reservations_path(@flight) do |form| %>
-  <p><%= "Can't repeat seats" if @repeated_seats%></p>
+  <% if @repeated_seats %>
+    <p class="notification is-danger"> Can't repeat seats</p>
+  <% elsif @empty_user %>
+    <p class="notification is-danger"> You must give your name</p>
+  <% elsif @empty_seats %>
+    <p class="notification is-danger"> Choose seats </p>
+  <%end%>
   <% if @errors %>
     <div style="color: red">
       <h2><%= pluralize(@errors.count, "error") %> prohibited this reservation from being saved:</h2>
@@ -18,7 +24,7 @@
     <%= form.label :seats, class: "label" %>
     <%= form.text_field :seats , class: "input" %>
   </div>
-  <div class="field">
-    <%= form.submit "Reserve", class: "button"%>
+  <div class="field center-child">
+    <%= form.submit "Reserve", class: "button is-primary"%>
   </div>
 <% end %>
