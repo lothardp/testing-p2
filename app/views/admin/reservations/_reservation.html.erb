@@ -1,21 +1,15 @@
-<div id="<%= dom_id reservation %>">
-  <p>
-    <strong>User:</strong>
+<tr>
+  <td class="p-3">
     <%= reservation.user %>
-  </p>
-
-  <p>
-    <strong>Seat:</strong>
+  </td>
+  <td class="p-3">
     <%= reservation.seat %>
-  </p>
-
-  <p>
-    <strong>Flight:</strong>
-    <%= reservation.flight_id %>
-  </p>
-
-  <div>
-    <%= link_to "Edit this reservation", edit_admin_reservation_path(reservation) %>
-    <%= button_to "Delete", admin_reservation_path(reservation), method: :delete %>
-  </div>
-</div>
+  </td>
+  <td class="p-3">
+    <%= reservation.flight.origin %> -> <%= reservation.flight.origin %> at <%= reservation.flight.datetime.strftime("%Y-%d-%m") %>
+  </td>
+  <td class="p-3 separate-childs">
+    <%= link_to "Edit", edit_admin_reservation_path(reservation), class: "button is-info" %>
+    <%= button_to "Delete", admin_reservation_path(reservation), method: :delete, class: "button is-danger" %>
+  </td>
+</tr>

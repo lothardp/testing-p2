@@ -1,9 +1,13 @@
-<h1>Editing reservation</h1>
-
-<%= render "form", reservation: @reservation %>
-
-<br>
-
-<div>
-  <%= link_to "Back to reservations", admin_reservations_path %>
+<div class="level p-4 m-4">
+  <h1 class="level-item has-text-centered is-size-2">Edit Reservation</h1>
+</div>
+<div class="columns m-4">
+  <div class="column is-half is-offset-one-quarter p-4">
+    <div class="box">
+      <%= render "form", reservation: @reservation %>
+      <div class="center-child">
+        <%= link_to "Back to reservations", admin_reservations_path, class: "button is-info" %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -2,7 +2,6 @@
   <% if reservation.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
-
       <ul>
         <% reservation.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,18 +9,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :user, style: "display: block" %>
-    <%= form.text_field :user, value: reservation.user  %>
+  <div class="field">
+    <%= form.label :user, class: "label" %>
+    <%= form.text_field :user, value: reservation.user, class: "input" %>
   </div>
-
-  <div>
-    <%= form.label :seat, style: "display: block" %>
-    <%= form.text_field :seat, value: reservation.seat %>
+  <div class="field">
+    <%= form.label :seat, class: "label" %>
+    <%= form.text_field :seat, value: reservation.seat, class: "input" %>
   </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="field center-child p-4">
+    <%= form.submit value: "Edit Reservation", class: "button is-primary" %>
   </div>
 <% end %>

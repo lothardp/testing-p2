@@ -1,9 +1,13 @@
-<h1>New flight</h1>
-
-<%= render "form", flight: @flight %>
-
-<br>
-
-<div>
-  <%= link_to "Back to flights", admin_flights_path %>
+<div class="level p-4 m-4">
+  <h1 class="level-item has-text-centered is-size-2">New Flight</h1>
+</div>
+<div class="columns m-4">
+  <div class="column is-half is-offset-one-quarter p-4">
+    <div class="box">
+      <%= render "form", flight: @flight %>
+      <div class="center-child">
+        <%= link_to "Back to flights", admin_flights_path, class: "button is-info" %>
+      </div>
+    </div>
+  </div>
 </div>

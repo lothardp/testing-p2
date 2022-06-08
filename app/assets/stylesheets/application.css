@@ -23,3 +23,12 @@
    display: flex;
    justify-content: space-around;
  }
+
+ .selected {
+   background-color: rgb(200, 200, 200);
+ }
+
+ .hoverable:hover {
+  background-color: rgb(186, 186, 186);
+
+ }
