@@ -6,7 +6,7 @@
     <%= reservation.seat %>
   </td>
   <td class="p-3">
-    <%= reservation.flight.origin %> -> <%= reservation.flight.origin %> at <%= reservation.flight.datetime.strftime("%Y-%d-%m") %>
+    <%= reservation.flight.origin %> -> <%= reservation.flight.destination %> at <%= reservation.flight.datetime.strftime("%Y-%d-%m") %>
   </td>
   <td class="p-3 separate-childs">
     <%= link_to "Edit", edit_admin_reservation_path(reservation), class: "button is-info" %>
