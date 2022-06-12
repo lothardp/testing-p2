@@ -8,12 +8,13 @@ RSpec.describe 'Navigation', type: :system do
 
   it 'redirects and show stats' do
     visit '/admin/flights'
-    expect(page).to have_content('STATS')
+    expect(page).to (have_content('Total Reservations') && 
+      have_content('Total Users') && have_content('Total Flights'))
   end
 
   it 'redirects to admin adding new flight' do
     visit '/admin/flights/new'
-    expect(page).to have_content('New flight')
+    expect(page).to have_content('New Flight')
   end
 
 
