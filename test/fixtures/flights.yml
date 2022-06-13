@@ -1,11 +1,9 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   datetime: 2022-06-06 23:25:52
-  origin: MyString
-  destination: MyString
+  origin: SCL
+  destination: MIA
 
 two:
-  datetime: 2022-06-06 23:25:52
-  origin: MyString
-  destination: MyString
+  datetime: 2022-10-08 23:25:52
+  origin: SCL
+  destination: LAX

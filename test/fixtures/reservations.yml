@@ -1,11 +1,4 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  user: MyString
-  seat: MyString
+  user: Usuario de prueba 1
+  seat: 1A
   flight: one
-
-two:
-  user: MyString
-  seat: MyString
-  flight: two
