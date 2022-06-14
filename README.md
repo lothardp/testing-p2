@@ -40,3 +40,6 @@ test/controllers/flights_controller_test.rb
 test/controllers/reservations_controller_test.rb
 ```
 
+# Testlink
+
+El reporte generado automáticamente por la plataforma TestLink de los tests manuales se encuentra en el archivo `Testlink report.pdf`.
