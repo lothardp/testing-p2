@@ -1,3 +1,9 @@
+# Produccion
+link: [https://testing-p2.herokuapp.com/flights](https://testing-p2.herokuapp.com/flights)
+
+# Uso de la página
+Para reservar, los asientos disponibles son los verdes. En el campo de input se deben poner los asientos deseados separados por un "-" (e.g. `1A-13B-3C`).
+
 # Prerequisitos
 - Ruby: `ruby-2.7.4`
 - Rails: `Rails 7.0.3`
@@ -33,3 +39,4 @@ test/models/reservation_test.rb
 test/controllers/flights_controller_test.rb
 test/controllers/reservations_controller_test.rb
 ```
+
